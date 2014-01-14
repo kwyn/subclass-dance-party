@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image:url('mario-background.png');
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
