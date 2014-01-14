@@ -25,5 +25,8 @@ BlinkyDancer.prototype.step = function(){
 
 
 var makeBlinkyDancer = function(top, left, timeBetweenSteps){
-  return new BlinkyDancer(top, left, timeBetweenSteps);
+
+  var b = new BlinkyDancer(top, left, timeBetweenSteps);
+  window.dancers.push(b);
+  return b;
 };

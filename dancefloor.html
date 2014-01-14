@@ -24,11 +24,21 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBooDancer">add BOO</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBobOmbDancer">add Bob-Omb</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeyoshiDancer">add a Yoshi</a>
+      <button name="lineUp">Line up!</button>
     </div>
 
     <script>
       $(document).ready(function(){
         window.dancers = [];
+
+        $('button').on('click', function(){
+          console.log(window.dancers);
+
+          for (var i = 0; i < window.dancers.length; i++){
+            window.dancers[i].$node[0].style.left = "0px"
+            window.dancers[i].$node[0].style.top = "0px"
+          }
+        });
 
         $(".addDancerButton").on("click", function(event){
           /* This function sets up the click handlers for the create-dancer

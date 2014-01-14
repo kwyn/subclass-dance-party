@@ -22,7 +22,7 @@ yoshiDancer.prototype.step = function(){
   /* toggle() is a jQuery method to show/hide the <span> tag.
    * See http://api.jquery.com/category/effects/ for this and
    * other effects you can use on a jQuery-wrapped html tag. */
-  this.$node.animate({"left": "+=40"}, "fast");
+  this.$node.animate({"left": "+=20"}, "slow");
   if (this.$node.children()[0].x > 1900){
     this.$node.remove();
   };
