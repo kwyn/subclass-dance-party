@@ -7,7 +7,7 @@ var BobOmbDancer = function(top, left, timeBetweenSteps){
 
   this.step();
 
-  this.$node.css('border', 'none').prepend('<img id="Bob-Omb" src="bob-omb.gif" />')
+  this.$node.css('border', 'none').prepend('<img id="Bob-Omb" src="bob-omb.gif" />');
 
 };
 

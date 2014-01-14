@@ -6,20 +6,22 @@ body{
   background-color:#444;
   font-size: 18px;
   background-image:url('mario-background.png');
+  font-family: 'Comic Sans MS';
+
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: red;
 }
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
 }
 .topbar{
-  height:32px;
-  background-color: #555;
+  height:36px;
+  background-color:#00E600; 
 }
 .title{
-  background-color: #777;
+  background: black;
 }
 .dancer{
   border:10px solid red;
@@ -37,4 +39,10 @@ body, a:link, a:visited, a:active{
   border:10px solid green;
   border-radius: 0px;
   position: absolute;
+}
+
+.yoshi{
+  position:absolute;
+  bottom:0px;
+  left:0px;
 }
