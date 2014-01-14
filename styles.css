@@ -25,3 +25,15 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.square{
+  border:20px solid blue;
+  position: absolute;
+  border-radius: 0px;
+}
+
+.shifty{
+  border:10px solid green;
+  border-radius: 0px;
+  position: absolute;
+}
