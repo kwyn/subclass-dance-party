@@ -9,6 +9,9 @@ var StarDancer = function(top, left, timeBetweenSteps){
   
 
   this.$node.prepend('<img id="star" src="Star.png" height="175" width="175" />').addClass('star');
+  var left= Math.random() * 500;
+  var top = Math.random() * 300;
+  this.$node.css('top',''+top+'px').css('left','' + left + 'px');
   this.step();
 };
 

@@ -49,8 +49,7 @@ var makeBobOmbDancerBombs = function(){
   }
   setTimeout(function(){
     document.body.style.backgroundImage="url('Explosion.gif')";
-    for (var i = 0; i < document.body.childNodes.length; i++){
-      document.body.childNodes[4].remove();
-    }
+    $('body').css('background-size', 'cover');
+    $('body').children('.dancer, .yoshi').remove();
   },1800);
 };
