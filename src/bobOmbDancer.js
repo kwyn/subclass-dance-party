@@ -7,7 +7,7 @@ var BobOmbDancer = function(top, left, timeBetweenSteps){
   this.count =0;
   this.step();
 
-  this.$node.css('border', 'none').prepend('<img id="Bob-Omb" src="bob-omb.gif" />');
+  this.$node.css('border', 'none').prepend('<img id="Bob-Omb" src="bob-omb.gif" height="100" width="100" />');
 
 };
 
@@ -47,4 +47,10 @@ var makeBobOmbDancerBombs = function(){
           );
     $('body').append(dancer.$node);
   }
+  setTimeout(function(){
+    document.body.style.backgroundImage="url('Explosion.gif')";
+    for (var i = 0; i < document.body.childNodes.length; i++){
+      document.body.childNodes[4].remove();
+    }
+  },1800);
 };

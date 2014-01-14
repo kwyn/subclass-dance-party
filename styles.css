@@ -24,8 +24,6 @@ body, a:link, a:visited, a:active{
   background: black;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
 }
 
@@ -46,3 +44,26 @@ body, a:link, a:visited, a:active{
   bottom:0px;
   left:0px;
 }
+
+.star{
+  position:absolute;
+  top: 50px;
+  left: 50px;
+-webkit-animation: cssAnimation 3s 20 ease;
+-moz-animation: cssAnimation 2s 6 ease;
+-o-animation: cssAnimation 1s 6 ease;
+}
+@-webkit-keyframes cssAnimation {
+from { -webkit-transform: rotate(0deg); }
+to { -webkit-transform: rotate(360deg); }
+}
+
+/*
+@-moz-keyframes cssAnimation {
+from { -moz-transform: rotate(30deg); }
+to { -moz-transform: rotate(-30deg); }
+}
+@-o-keyframes cssAnimation {
+from { -o-transform: rotate(30deg); }
+to { -o-transform: rotate(-30deg); }
+}*/

@@ -7,7 +7,7 @@ var BooDancer = function(top, left, timeBetweenSteps){
 
   this.step();
 
-  this.$node.css('border', 'none').prepend('<img id="Boo" src="Boo-icon.png" />');
+  this.$node.css('border', 'none').prepend('<img id="Boo" src="Boo-icon.png" height="75" width="75" />');
 };
 
 BooDancer.prototype = Object.create(Dancer.prototype);
@@ -25,8 +25,9 @@ BooDancer.prototype.step = function(){
   var topMovement = (Math.random() - 0.5) * 60;
   var leftMovement = (Math.random() - 0.5) * 60;
   if (leftMovement < 0){
-    this.$node.children()[0].remove();
-    this.$node.prepend('<img id="Boo-reverse" src="Boo-icon-reverse.png" />')
+    this.$node.css('transform', 'rotateY(180deg)');
+  } else if (leftMovement > 0){
+    this.$node.css('transform', 'rotateY(0deg)');
   };
   this.$node.animate({"top": "+=" + topMovement + "", "left": "+=" + leftMovement + ""}, "slow");
   this.$node.fadeToggle('slow');
@@ -34,5 +35,8 @@ BooDancer.prototype.step = function(){
 
 
 var makeBooDancer = function(top, left, timeBetweenSteps){
-  return new BooDancer(top, left, timeBetweenSteps);
+
+  var boo = new BooDancer(top, left, timeBetweenSteps);
+  window.dancers[0].push(boo);
+  return boo;
 };

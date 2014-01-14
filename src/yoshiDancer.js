@@ -8,27 +8,32 @@ var yoshiDancer = function(top, left, timeBetweenSteps){
   this.$node.css('top', '580px').css('left', '0px');
   
   this.$node.removeClass().addClass('yoshi').prepend('<img id="yoshi" src="testgif.gif" />');
-  this.step();
+  // this.step();
 };
 
 yoshiDancer.prototype = Object.create(Dancer.prototype);
 
 yoshiDancer.prototype.constructor = yoshiDancer;
 
-yoshiDancer.prototype.step = function(){
-  // call the old version of step at the beginning of any call to this new version of step
-  this.oldStep();
+// yoshiDancer.prototype.step = function(){
+//   // call the old version of step at the beginning of any call to this new version of step
+//   this.oldStep();
 
-  /* toggle() is a jQuery method to show/hide the <span> tag.
-   * See http://api.jquery.com/category/effects/ for this and
-   * other effects you can use on a jQuery-wrapped html tag. */
-  this.$node.animate({"left": "+=20"}, "slow");
-  if (this.$node.children()[0].x > 1900){
-    this.$node.remove();
-  };
+//    // toggle() is a jQuery method to show/hide the <span> tag.
+//    // * See http://api.jquery.com/category/effects/ for this and
+//    // * other effects you can use on a jQuery-wrapped html tag. 
+//   this.$node.animate({"left": "+=20"}, "slow");
+//   if (this.$node.children()[0].x > 1900){
+//     this.$node.remove();
+//   };
+// };
+
+yoshiDancer.prototype.jump = function(){
+  this.$node.animate({"top": "-=50"}, "fast");
 };
 
 
 var makeyoshiDancer = function(top, left, timeBetweenSteps){
   return new yoshiDancer(top, left, timeBetweenSteps);
 };
+

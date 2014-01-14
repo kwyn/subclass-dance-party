@@ -4,6 +4,7 @@
     <title>Mario Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
+    <script src="lib/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/squareDancer.js"></script>
@@ -11,6 +12,9 @@
     <script src="src/booDancer.js"></script>
     <script src="src/bobOmbDancer.js"></script>
     <script src="src/yoshiDancer.js"></script>
+    <script src="src/starDancer.js"></script>
+    <script src="src/marioDancer.js"></script>
+    <script src="src/everybody.js"></script>
   </head>
   <body>
 
@@ -18,9 +22,9 @@
 
     <div class="topbar">
       <span class="title">MARIO DANCE PARTY!!!</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeSquareDancer">add a square dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeShiftyDancer">add a shifty dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeEverybodyDancer">add Everyone!</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeStarDancer">add a star dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeMarioDancer">add a Mario dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBooDancer">add BOO</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBobOmbDancer">add Bob-Omb</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBobOmbDancerBombs">Carpet Bomb It</a>
@@ -30,14 +34,26 @@
 
     <script>
       $(document).ready(function(){
-        window.dancers = [];
+        window.dancers = [[], [], [], []];
+        //0:Boos, 1:Stars, 2:Marios
 
         $('button').on('click', function(){
           console.log(window.dancers);
 
-          for (var i = 0; i < window.dancers.length; i++){
-            window.dancers[i].$node[0].style.left = "0px"
-            window.dancers[i].$node[0].style.top = "0px"
+          for (var i = 0; i < window.dancers[0].length; i++){
+            window.dancers[0][i].$node[0].style.left = "650px"
+            var top = i*50;
+            window.dancers[0][i].$node[0].style.top = "" + top + "px";
+          }
+          for (var i = 0; i < window.dancers[1].length; i++){
+            window.dancers[1][i].$node[0].style.left = "50px"
+            var top = i*50;
+            window.dancers[1][i].$node[0].style.top = "" + top + "px";
+          }
+          for (var i = 0; i < window.dancers[2].length; i++){
+            var left = 600 + i*50;
+            window.dancers[2][i].$node[0].style.left = "" + left + "px";
+            window.dancers[2][i].$node[0].style.top = "625px";
           }
         });
 
@@ -67,7 +83,27 @@
           );
 
           $('body').append(dancer.$node);
+          $('.dancer').draggable();
         });
+
+          //Event Handler for Yoshi Movement
+          $( window ).keydown(function( event ) {
+            if ( event.which == 38 ) {
+              event.preventDefault();
+              $('.yoshi').animate({"top": "-=150"}, "fast");
+              $('.yoshi').animate({"top": "+=150"}, "slow");
+            }
+            if ( event.which == 37 ) {
+              event.preventDefault();
+              $('.yoshi').css('transform', 'rotateY(180deg)')
+              $('.yoshi').animate({"left": "-=50"}, "fast");
+            }
+            if ( event.which == 39 ) {
+              event.preventDefault();
+              $('.yoshi').css('transform', 'rotateY(0deg)')
+              $('.yoshi').animate({"left": "+=50"}, "fast");
+            }
+          });
       });
     </script>
 
