@@ -22,6 +22,13 @@ BooDancer.prototype.step = function(){
    * See http://api.jquery.com/category/effects/ for this and
    * other effects you can use on a jQuery-wrapped html tag. */
   // this.$node.toggleClass('shifty');
+  var topMovement = (Math.random() - 0.5) * 60;
+  var leftMovement = (Math.random() - 0.5) * 60;
+  if (leftMovement < 0){
+    this.$node.children()[0].remove();
+    this.$node.prepend('<img id="Boo-reverse" src="Boo-icon-reverse.png" />')
+  };
+  this.$node.animate({"top": "+=" + topMovement + "", "left": "+=" + leftMovement + ""}, "slow");
   this.$node.fadeToggle('slow');
 };
 

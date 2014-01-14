@@ -37,3 +37,14 @@ BobOmbDancer.prototype.step = function(){
 var makeBobOmbDancer = function(top, left, timeBetweenSteps){
   return new BobOmbDancer(top, left, 190);
 };
+
+var makeBobOmbDancerBombs = function(){
+  for (var i = 0; i < 100; i++){
+    var dancer = makeBobOmbDancer(
+            $("body").height() * Math.random(),
+            $("body").width() * Math.random(),
+            Math.random() * 1000
+          );
+    $('body').append(dancer.$node);
+  }
+};
